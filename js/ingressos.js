@@ -60,9 +60,8 @@ const excluirUmaReserva = async (id) => { //O ID passado como parametro é o id 
     }
 }
 
-
 // ***************** FUNCIONAIS ********************************
-
+//Para evitar erros em outras páginas, executar a função só quando estiver na página de listar reservas
 if(localizacaoDnv == '/listar-reservas.html'){
     listarReservas();
 }

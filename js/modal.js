@@ -25,7 +25,7 @@ async function pegarDadosEModal(idDoEvento) {
     })
 }
 
-//Função que cria o formulário e mostra o modal na tela
+//Função que ao clicar para reservar ingresso, vai abrir um modal na tela e criar um formulário baseado no evento selecionado e criar uma nova função para criar reserva na API
 function mostrarModal(idDoEvento) {
     pegarDadosEModal(idDoEvento);
     localModal.style.display = 'block';
