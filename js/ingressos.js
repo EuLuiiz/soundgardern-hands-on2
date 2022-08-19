@@ -1,7 +1,9 @@
 /**PARA FAZER
  * LISTAR RESERVAS: 1. Fazer com que crie um h1 para mostrar o nome do evento 
  */
- const localizacaoDnv = window.location.pathname;
+
+//Armazeno na variável um array com toda a URL sendo dividida por /
+const localizacaoDnv = window.location.pathname.split('/');
 
 //Função Para pegar o ID do evento
 const encontrarID = () => {
@@ -62,6 +64,6 @@ const excluirUmaReserva = async (id) => { //O ID passado como parametro é o id 
 
 // ***************** FUNCIONAIS ********************************
 //Para evitar erros em outras páginas, executar a função só quando estiver na página de listar reservas
-if(localizacaoDnv == '/listar-reservas.html'){
+if ((localizacaoDoArquivo[localizacaoDoArquivo.length - 1]) == 'listar-reservas.html') {
     listarReservas();
 }

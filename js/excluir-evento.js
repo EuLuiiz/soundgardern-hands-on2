@@ -1,11 +1,12 @@
 const SOUND_URL = 'https://xp41-soundgarden-api.herokuapp.com/events';
 
 const findID = () => {
-    // pega url da página
+    //pega o url da pagina   
     const url = new URL(window.location.href);
-    //separando parametro id
+    //O métod get() da interface URLSearchParams, retorna 
+    //o primeiro valor associado ao parametro de busca fornecido.
     const id = url.searchParams.get('id');
-    // retorna somente o id
+    //retorna somente o id
     return id;
 }
 
@@ -38,17 +39,17 @@ exibirDetalhesEvento();
 
 const formExcluirEvento = document.querySelector("#excluir-evento");
 
-formExcluirEvento.addEventListener('submit', async (evento)=>{
+formExcluirEvento.addEventListener('submit', async (evento) => {
     evento.preventDefault();
-        const resposta = await fetch(`${SOUND_URL}/${findID()}`, {
-            method: "DELETE",
-            mode: "cors",
-            headers: {
-                "Content-Type": "application/json"
-            }
-        }).then(() => {
-                alert("Evento removido com sucesso");
-                window.location.replace('./admin.html');
-            }).catch((error) => console.log(error));
-    }
+    const resposta = await fetch(`${SOUND_URL}/${findID()}`, {
+        method: "DELETE",
+        mode: "cors",
+        headers: {
+            "Content-Type": "application/json"
+        }
+    }).then(() => {
+        alert("Evento removido com sucesso");
+        window.location.replace('./admin.html');
+    }).catch((error) => console.log(error));
+}
 )

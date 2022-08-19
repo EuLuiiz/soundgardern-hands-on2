@@ -16,26 +16,23 @@ async function pegarDadosEModal(idDoEvento) {
 
     listaDeEventos.forEach(objeto => {
         if (objeto._id === idDoEvento) {
-           const h1Titulo = document.getElementById('titulo-h1-modal');
-           const infoIngressos = document.getElementById('ingressos-informados-modal');
-           h1Titulo.innerHTML = `${objeto.name}`;
-           infoIngressos.innerHTML = `Ingressos (Restam ${objeto.number_tickets})`;
-           
+            const h1Titulo = document.getElementById('titulo-h1-modal');
+            const infoIngressos = document.getElementById('ingressos-informados-modal');
+            h1Titulo.innerHTML = `${objeto.name}`;
+            infoIngressos.innerHTML = `Ingressos (Restam ${objeto.number_tickets})`;
         }
     })
 }
 
 //Função que ao clicar para reservar ingresso, vai abrir um modal na tela e criar um formulário baseado no evento selecionado e criar uma nova função para criar reserva na API
 function mostrarModal(idDoEvento) {
-    pegarDadosEModal(idDoEvento);
-    localModal.style.display = 'block';
+    pegarDadosEModal(idDoEvento); //Vai pegar os dados do Titulo do Evento e os ingressos baseado no evento escolhido (estética)
+    localModal.style.display = 'block';//Muda o valor de none para block, mostrando o Modal
 
-
-    const formReservarIngresso = document.querySelector('#cadastro-modal');
+    const formReservarIngresso = document.querySelector('#cadastro-modal');//Selecionando o Formulário do Modal
 
     formReservarIngresso.addEventListener('submit', async (event) => {
         event.preventDefault();
-
         const inputNome = document.getElementById('nomeModal');
         const inputEmail = document.getElementById('emailModal');
         const inputIngresso = document.getElementById('ingressosModal');
@@ -47,22 +44,22 @@ function mostrarModal(idDoEvento) {
             "number_tickets": `${inputIngresso.value}`,
             "event_id": `${id}`
         }
+        const reservarEventoJSON = JSON.stringify(reservarEventoObj); //Conversão do objeto com os dados para JSON (aceito pela API)
 
-        const reservarEventoJSON = JSON.stringify(reservarEventoObj);
-
+        //Função padrão do método POST
         const resposta = await fetch(SOUND_URL_RESERVA, {
             method: 'POST',
             mode: "cors",
             headers: {
                 "Content-Type": "application/json",
             },
-            body: reservarEventoJSON
+            body: reservarEventoJSON //Mandar para API a váriavel com o objeto convertido para modelo JSON
         }).then((response) => {
-            alert('Reserva concluida!')
-            window.location.reload();
+            alert('Reserva concluida!'); //Informa um pop-up caso a reserva for concluida
+            window.location.reload(); //Carregar a página caso a reserva for concluida
             return response.json();
-        }).then((responseOBJ) => {
-            console.log(responseOBJ);
+        }).catch((erro) => {
+            console.log(erro); // Tratamento de erro
         });
     })
 }

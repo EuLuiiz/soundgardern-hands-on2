@@ -83,14 +83,12 @@ formEditarEvento.addEventListener("submit", async (event) => {
         body: eventoAtualizadoJSON
     }).then((response) => {
         return response.json();
-    }).then((responseOBJ) => {
-        console.log(responseOBJ);
-        console.log("Editado com sucesso!");
-
+    }).then(() => {
+        // alerta para informar que o evento foi editado
+        alert('Evento editado com sucesso!');
         // redireciona para lista de eventos
         window.location.replace('admin.html?acao=edit');
     });
-
 });
 
 

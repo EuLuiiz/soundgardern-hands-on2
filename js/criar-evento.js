@@ -5,7 +5,6 @@ const formCadastroEvento = document.querySelector('#cadastro-evento');
 formCadastroEvento.addEventListener('submit', async (event) => {
     //evitar que a página seja recarregada
     event.preventDefault();
-
     const inputNome = document.getElementById("nome");
     const inputAtracoes = document.getElementById("atracoes");
     const inputDescricao = document.getElementById("descricao");
@@ -45,6 +44,4 @@ formCadastroEvento.addEventListener('submit', async (event) => {
         alert('Evento criado com sucesso!')
         window.location.replace('./admin.html');
     })
-
-
 });
