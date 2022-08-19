@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sound Gardens - Painel Administrativo</title>
+  <title>Sound Gardens - Reservas</title>
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
@@ -16,7 +16,7 @@
   <div class="container-fluid">
     <div class="row">
       <aside class="d-flex flex-column flex-shrink-0 p-3 bg-light col-2">
-        <a href="./index.html" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+        <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
           <svg class="bi me-2" width="40" height="32">
             <use xlink:href="#bootstrap"></use>
           </svg>
@@ -24,45 +24,32 @@
             <img src="img/Sound-logo.png" alt="Gama Lounge" class="img-responsive" />
           </span>
         </a>
-        <p class="text-center">painel administrativo</p>
+        <p class="text-center">Gerenciamento das reservas</p>
         <hr />
         <ul class="nav nav-pills flex-column mb-auto">
           <li class="nav-item">
-            <a href="./admin.html" class="nav-link active" aria-current="page">
-              Eventos
-            </a>
-          </li>
-
-          <li>
-            <a href="#" class="nav-link link-dark"> Funcionários </a>
-          </li>
-          <li>
-            <a href="#" class="nav-link link-dark"> Usuários </a>
-          </li>
-          <li>
-            <a href="./index.html" class="nav-link link-dark"> Landing Page </a>
+            <a href="#" class="nav-link active" aria-current="page">Reservas</a>
           </li>
         </ul>
         <hr />
       </aside>
       <main class="col-9 p-5">
-        <div class="my-5">
-          <h1>Gerenciamento de eventos</h1>
-
-          <a href="./cadastro-evento.html" class="btn btn-primary">Novo Evento</a>
+        <div class="my-5" id="tituloEvento">
+            <!--TAG para informar o evento-->
+          <a href="admin.html" class="btn btn-primary">voltar</a>
         </div>
         <div class="bd-example">
           <table class="table">
             <thead>
               <tr>
                 <th scope="col">#</th>
-                <th scope="col">Data</th>
-                <th scope="col">Titulo</th>
-                <th scope="col">Atrações</th>
-                <th scope="col">Ações</th>
+                <th scope="col">Nome</th>
+                <th scope="col">E-mail</th>
+                <th scope="col">Reservas</th>
+                <th scope="col">Ação</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody id="todasAsReservas">
               <!-- --------------------------------- -->
               <!--Conteudo gerado automaticamente pelo JavaScript-->
               <!-- --------------------------------- -->
@@ -76,6 +63,7 @@
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
     crossorigin="anonymous"></script>
   <script src="./js/listar-eventos.js"></script>
+  <script src="./js/ingressos.js"></script>
 </body>
 
 </html>
