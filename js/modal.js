@@ -55,10 +55,13 @@ function mostrarModal(idDoEvento) {
             },
             body: reservarEventoJSON //Mandar para API a váriavel com o objeto convertido para modelo JSON
         }).then((response) => {
+            return response.json();
+        }).then(()=>{
             alert('Reserva concluida!'); //Informa um pop-up caso a reserva for concluida
             window.location.reload(); //Carregar a página caso a reserva for concluida
-            return response.json();
-        }).catch((erro) => {
+        })
+        .catch((erro) => {
+            alert('Reserva não concluida, valor incorreto!')
             console.log(erro); // Tratamento de erro
         });
     })
