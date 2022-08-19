@@ -1,6 +1,7 @@
 //Pegando o Link da API
 const SOUND_URL_EVENTOS = 'https://xp41-soundgarden-api.herokuapp.com/events';
 const localizacaoDoArquivo = window.location.pathname;
+console.log(localizacaoDoArquivo);
 
 //Criando uma arrow function com o tratamennto async/wait
 //Assim a função executa na mesma velocidade que a API (1 por vez) e carrega de forma dinâmica sem precisar esperar
